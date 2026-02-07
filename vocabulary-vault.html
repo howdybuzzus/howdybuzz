@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Vocabulary Vault | HowdyBuzz</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: { 'midnight-blue': '#0b1a2a', 'brand-gold': '#FFD700' }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Smooth fade in for lazy loaded items */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden flex flex-col min-h-screen">
+
+    <!-- Navigation Bar -->
+    <nav
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-opacity-90 backdrop-blur-md bg-[#0b1a2a]/80 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="HowdyBuzz Logo" class="h-10 w-auto transition-all duration-300">
+                <span class="text-2xl font-bold text-white tracking-tight">Howdy<span
+                        class="text-brand-gold">Buzz</span></span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white font-medium transition-colors">Home</a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center text-gray-300 group-hover:text-white font-medium transition-colors focus:outline-none">
+                        Exams <svg
+                            class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+                        <a href="gre.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600">GRE
+                            Track</a>
+                        <a href="gmat.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600">GMAT
+                            Track</a>
+                        <a href="ielts.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600">IELTS
+                            Track</a>
+                        <a href="toefl.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">TOEFL
+                            Track</a>
+                        <a href="sat.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">SAT
+                            Track</a>
+                    </div>
+                </div>
+                <a href="daily-archives.html" class="text-gray-300 hover:text-white font-medium transition-colors">Daily
+                    5 Words</a>
+                <a href="vocabulary-vault.html" class="text-white font-bold transition-colors">Vocabulary Vault</a>
+                <a href="#footer" class="text-gray-300 hover:text-white font-medium transition-colors">Contact Us</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="#"
+                    class="px-6 py-2 bg-brand-gold text-[#0b1a2a] font-bold rounded-lg hover:bg-white transition-colors shadow-md">Get
+                    Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Massive Search Hero Section -->
+    <header
+        class="min-h-[40vh] flex flex-col justify-center items-center bg-gradient-to-b from-[#0b1a2a] to-amber-900 text-white px-6 pt-24 pb-12 text-center relative overflow-hidden">
+
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-gold rounded-full filter blur-[128px]"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-500 rounded-full filter blur-[128px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl w-full">
+            <h1 class="text-5xl md:text-6xl font-serif font-bold mb-6 tracking-tight">The Master Vocabulary Vault</h1>
+
+            <!-- Search Interface -->
+            <div class="relative max-w-2xl mx-auto mb-4">
+                <div
+                    class="relative shadow-2xl rounded-full group focus-within:ring-4 ring-brand-gold/30 transition-all duration-300">
+                    <input type="text" id="vault-search" oninput="handleSearch()"
+                        placeholder="Search 5,000+ words (e.g., 'Abjure' or 'Pragmatic')..."
+                        class="w-full py-6 pl-16 pr-8 rounded-full text-xl border-none outline-none text-gray-800 placeholder-gray-400 bg-white/95 backdrop-blur-sm group-hover:bg-white transition-colors">
+
+                    <div
+                        class="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-[#0b1a2a] transition-colors">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Counter -->
+            <p id="word-count-display" class="text-blue-200 font-medium text-sm tracking-wide opacity-80">Loading
+                dictionary...</p>
+        </div>
+    </header>
+
+    <!-- Word Grid Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+        <!-- Virtualized Grid Container -->
+        <section id="vault-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Cards will be injected here via Javascript -->
+        </section>
+
+        <!-- Sentinel for Infinite Scroll -->
+        <div id="scroll-sentinel" class="w-full h-20 flex items-center justify-center mt-12 opacity-0">
+            <span class="loading-spinner"></span>
+        </div>
+
+        <!-- Empty State -->
+        <div id="no-results" class="hidden text-center py-20">
+            <div class="text-6xl mb-4">🔍</div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">No words found</h3>
+            <p class="text-gray-500 text-lg mb-6">We couldn't find any matches for your search.</p>
+            <button onclick="document.getElementById('vault-search').value=''; handleSearch();"
+                class="px-6 py-2 bg-[#0b1a2a] text-white rounded-lg hover:bg-blue-900 transition-colors">Clear
+                Search</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <!-- Subscribe Section -->
+    <section class="max-w-4xl mx-auto px-6 py-16 text-center">
+        <div
+            class="bg-gradient-to-br from-[#0b1a2a] to-amber-900 rounded-3xl p-10 md:p-16 relative overflow-hidden shadow-2xl">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-5 rounded-full blur-3xl"></div>
+            <div
+                class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-brand-gold opacity-10 rounded-full blur-3xl">
+            </div>
+
+            <div class="relative z-10">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-white/10 text-brand-gold text-xs font-bold tracking-wider uppercase mb-6 border border-white/10">Daily
+                    5 Words</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join our Daily Vocabulary Club</h2>
+                <p class="text-gray-300 mb-8 max-w-lg mx-auto">Get 5 high-impact words delivered to your inbox every
+                    morning. The easiest way to build a top 1% vocabulary.</p>
+
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
+                    onsubmit="event.preventDefault(); alert('Subscribed! (This is a static demo. In a real app, this would save to a database.)');">
+                    <input type="email" placeholder="Enter your email address" required
+                        class="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:bg-white/20 transition-all">
+                    <button type="submit"
+                        class="px-8 py-4 bg-brand-gold text-[#0b1a2a] font-bold rounded-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+                <p class="text-gray-500 text-xs mt-6">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-gray-900 text-white border-t border-gray-800 pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <a href="index.html" class="inline-block">
+                        <span class="text-2xl font-bold tracking-tight text-white">Howdy<span
+                                class="text-brand-gold">Buzz</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Master Vocabulary for Global Exams. The most comprehensive platform for GRE, GMAT, IELTS, TOEFL
+                        and SAT aspirants.
+                    </p>
+                    <div class="pt-4">
+                        <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Contact Us</h4>
+                        <a href="mailto:howdybuzzus@gmail.com"
+                            class="text-gray-400 hover:text-brand-gold transition-colors block">howdybuzzus@gmail.com</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-brand-gold font-semibold uppercase tracking-wider text-sm mb-6">Exam Tracks</h3>
+                    <ul class="space-y-3">
+                        <li><a href="gre.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">GRE
+                                Vocabulary</a></li>
+                        <li><a href="gmat.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">GMAT
+                                Lexicon</a></li>
+                        <li><a href="ielts.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">IELTS
+                                Academic</a></li>
+                        <li><a href="toefl.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">TOEFL
+                                Essential</a></li>
+                        <li><a href="sat.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">SAT
+                                Prep</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-red-500 rounded-full w-2 h-2 animate-pulse"></span>
+                        <h3 class="text-white font-bold">Indian Exams?</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Preparing for CAT, UPSC, or BANK PO? We have a dedicated
+                        platform just for you.</p>
+                    <a href="https://howdybuzz.in" target="_blank"
+                        class="flex items-center justify-between w-full px-4 py-3 bg-white text-[#0b1a2a] rounded-lg font-bold hover:bg-brand-gold transition-all group">
+                        <span>Visit Howdybuzz.in</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 HowdyBuzz. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script>
+        // --- 1. Scalable Data Simulation (Generating 100+ items for demo) ---
+        const baseWords = [
+            { word: "Abjure", exams: ["GRE", "SAT"], def: "To formally reject or disavow a formerly held belief, usually under pressure.", ex: "The defendant was willing to abjure his errors to receive a lighter sentence." },
+            { word: "Pragmatic", exams: ["SAT", "IELTS"], def: "Dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.", ex: "We need a pragmatic solution to this crisis, not empty promises." },
+            { word: "Obfuscate", exams: ["GMAT", "GRE"], def: "To render obscure, unclear, or unintelligible; to confuse.", ex: "Politicians often use complex language to obfuscate the truth." },
+            { word: "Cacophony", exams: ["TOEFL", "IELTS"], def: "A harsh, discordant mixture of sounds.", ex: "A cacophony of deafening alarm bells woke the neighborhood." },
+            { word: "Ameliorate", exams: ["IELTS", "TOEFL"], def: "To make something bad or unsatisfactory better.", ex: "The reform did much to ameliorate living standards." },
+            { word: "Taciturn", exams: ["GRE", "SAT", "GMAT"], def: "Reserved or uncommunicative in speech; saying little.", ex: "He was a taciturn man who rarely joined in family conversations." },
+            { word: "Ephemeral", exams: ["GRE", "IELTS"], def: "Lasting for a very short time.", ex: "Fashions are ephemeral, changing with every season." },
+            { word: "Lugubrious", exams: ["SAT"], def: "Looking or sounding sad and dismal.", ex: "His face looked even more lugubrious than usual." },
+            { word: "Sycophant", exams: ["GRE", "GMAT"], def: "A person who acts obsequiously toward someone important in order to gain advantage.", ex: "The CEO was surrounded by sycophants who agreed with everything he said." },
+            { word: "Pernicious", exams: ["SAT", "TOEFL"], def: "Having a harmful effect, especially in a gradual or subtle way.", ex: "The pernicious effects of jealousy destroyed their friendship." },
+            { word: "Ubiquitous", exams: ["IELTS", "TOEFL"], def: "Present, appearing, or found everywhere.", ex: "Computers are becoming increasingly ubiquitous." },
+            { word: "Nonchalant", exams: ["SAT"], def: "Feeling or appearing casually calm and relaxed; not displaying anxiety, interest, or enthusiasm.", ex: "She gave a nonchalant shrug." }
+        ];
+
+        // Generator to create a larger dataset
+        let allWords = [];
+        for (let i = 0; i < 50; i++) { // Generate 600 items (12 * 50)
+            baseWords.forEach((item, index) => {
+                allWords.push({
+                    id: i * 12 + index,
+                    word: item.word + (i > 0 ? ` ${i + 1}` : ""), // Unique names for search demo
+                    exams: item.exams,
+                    def: item.def,
+                    ex: item.ex
+                });
+            });
+        }
+
+        // --- 2. State Management ---
+        const STATE = {
+            items: allWords,         // Full Dataset
+            filteredItems: allWords, // Current Filtered Set
+            renderedCount: 0,        // How many rendered so far
+            batchSize: 20           // Lazy Load Batch
+        };
+
+        const grid = document.getElementById('vault-grid');
+        const countDisplay = document.getElementById('word-count-display');
+        const noResults = document.getElementById('no-results');
+
+        // --- 3. Component Rendering ---
+        function createCard(data) {
+            const article = document.createElement('article');
+            article.className = 'bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover-lift group flex flex-col fade-in';
+
+            // Tag Badges simulation (colors based on text)
+            const badges = data.exams.map(exam => {
+                let colorClass = 'bg-gray-100 text-gray-700';
+                if (exam === 'GRE') colorClass = 'bg-blue-100 text-blue-700';
+                if (exam === 'SAT') colorClass = 'bg-purple-100 text-purple-700';
+                if (exam === 'GMAT') colorClass = 'bg-emerald-100 text-emerald-700';
+                if (exam === 'TOEFL') colorClass = 'bg-orange-100 text-orange-700';
+                if (exam === 'IELTS') colorClass = 'bg-red-100 text-red-700';
+                return `<span class="${colorClass} px-2 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide">${exam}</span>`;
+            }).join('');
+
+            article.innerHTML = `
+                <div class="flex justify-between items-start mb-3 gap-4">
+                    <h3 class="text-xl font-bold text-[#0b1a2a]">${data.word}</h3>
+                    <div class="flex flex-wrap gap-2 justify-end">
+                        ${badges}
+                    </div>
+                </div>
+                <p class="text-gray-700 mb-4 flex-grow">${data.def}</p>
+                <div class="border-t border-gray-50 pt-3 mt-auto">
+                    <p class="text-sm text-gray-500 italic">"${data.ex}"</p>
+                </div>
+                
+                <!-- Expandable Footer (Hidden Phase 2 Slots) -->
+                <!-- Expandable Footer (Hidden Phase 2 Slots) -->
+                <!-- 
+                <div class="mt-4 pt-4 border-t border-dashed border-gray-100 hidden" id="details-${data.id}">
+                     <div class="grid grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <span class="font-bold text-gray-400 block mb-1">SYNONYMS</span>
+                            <span class="text-gray-600">Renounce, Relinquish</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-gray-400 block mb-1">ANTONYMS</span>
+                            <span class="text-gray-600">Assert, Maintain</span>
+                        </div>
+                     </div>
+                </div> 
+                -->
+
+                <!-- Actions -->
+                <div class="flex justify-between items-center mt-4 pt-2">
+                    <!-- Placeholder for future view more logic 
+                    <button onclick="toggleDetails(${data.id})" class="text-xs font-bold text-brand-gold bg-[#0b1a2a] px-3 py-1 rounded hover:bg-blue-800 transition-colors">
+                        View More
+                    </button>
+                    -->
+                    <div class="flex gap-3 text-gray-400 ml-auto">
+                         <!-- Audio Hidden
+                         <button class="hover:text-blue-600" title="Pronounce">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                         </button>
+                         -->
+                         <button class="hover:text-blue-600" title="Copy Link">
+                         <button class="hover:text-blue-600" title="Copy Link">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                         </button>
+                    </div>
+                </div>
+            `;
+            return article;
+        }
+
+        function toggleDetails(id) {
+            const el = document.getElementById(`details-${id}`);
+            if (el) el.classList.toggle('hidden');
+        }
+
+        // --- 4. Virtualization Logic ---
+        function renderBatch() {
+            const start = STATE.renderedCount;
+            const end = Math.min(start + STATE.batchSize, STATE.filteredItems.length);
+
+            if (start >= end) return; // No more items
+
+            const fragment = document.createDocumentFragment();
+            for (let i = start; i < end; i++) {
+                fragment.appendChild(createCard(STATE.filteredItems[i]));
+            }
+            grid.appendChild(fragment);
+            STATE.renderedCount = end;
+
+            updateCountDisplay();
+        }
+
+        function wipaData() {
+            grid.innerHTML = '';
+            STATE.renderedCount = 0;
+            updateCountDisplay();
+        }
+
+        function updateCountDisplay() {
+            countDisplay.textContent = `Showing ${STATE.renderedCount} of ${STATE.filteredItems.length} words`;
+
+            if (STATE.filteredItems.length === 0) {
+                noResults.classList.remove('hidden');
+                grid.classList.add('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                grid.classList.remove('hidden');
+            }
+        }
+
+        // --- 5. Selection & Filtering ---
+        function handleSearch() {
+            const query = document.getElementById('vault-search').value.toLowerCase();
+
+            // Filter Data
+            STATE.filteredItems = STATE.items.filter(item => {
+                return item.word.toLowerCase().includes(query) ||
+                    item.def.toLowerCase().includes(query);
+            });
+
+            // Reset Grid
+            wipaData();
+
+            // Render First Batch
+            renderBatch();
+        }
+
+        // --- 6. Infinite Scroll Observer ---
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                // Load more if query allows
+                // Simulate slight network delay for effect? No, keep it snappy.
+                renderBatch();
+            }
+        }, { rootMargin: '100px' });
+
+        const sentinel = document.getElementById('scroll-sentinel');
+        if (sentinel) observer.observe(sentinel);
+
+        // --- 7. Init ---
+        // Initial Render
+        handleSearch(); // renders initial unfiltered set
+
+    </script>
+</body>
+
+</html>
