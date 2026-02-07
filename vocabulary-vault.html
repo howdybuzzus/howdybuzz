@@ -273,34 +273,14 @@
     <!-- Logic Script -->
     <script>
         // --- 1. Scalable Data Simulation (Generating 100+ items for demo) ---
-        const baseWords = [
-            { word: "Abjure", exams: ["GRE", "SAT"], def: "To formally reject or disavow a formerly held belief, usually under pressure.", ex: "The defendant was willing to abjure his errors to receive a lighter sentence." },
-            { word: "Pragmatic", exams: ["SAT", "IELTS"], def: "Dealing with things sensibly and realistically in a way that is based on practical rather than theoretical considerations.", ex: "We need a pragmatic solution to this crisis, not empty promises." },
-            { word: "Obfuscate", exams: ["GMAT", "GRE"], def: "To render obscure, unclear, or unintelligible; to confuse.", ex: "Politicians often use complex language to obfuscate the truth." },
-            { word: "Cacophony", exams: ["TOEFL", "IELTS"], def: "A harsh, discordant mixture of sounds.", ex: "A cacophony of deafening alarm bells woke the neighborhood." },
-            { word: "Ameliorate", exams: ["IELTS", "TOEFL"], def: "To make something bad or unsatisfactory better.", ex: "The reform did much to ameliorate living standards." },
-            { word: "Taciturn", exams: ["GRE", "SAT", "GMAT"], def: "Reserved or uncommunicative in speech; saying little.", ex: "He was a taciturn man who rarely joined in family conversations." },
-            { word: "Ephemeral", exams: ["GRE", "IELTS"], def: "Lasting for a very short time.", ex: "Fashions are ephemeral, changing with every season." },
-            { word: "Lugubrious", exams: ["SAT"], def: "Looking or sounding sad and dismal.", ex: "His face looked even more lugubrious than usual." },
-            { word: "Sycophant", exams: ["GRE", "GMAT"], def: "A person who acts obsequiously toward someone important in order to gain advantage.", ex: "The CEO was surrounded by sycophants who agreed with everything he said." },
-            { word: "Pernicious", exams: ["SAT", "TOEFL"], def: "Having a harmful effect, especially in a gradual or subtle way.", ex: "The pernicious effects of jealousy destroyed their friendship." },
-            { word: "Ubiquitous", exams: ["IELTS", "TOEFL"], def: "Present, appearing, or found everywhere.", ex: "Computers are becoming increasingly ubiquitous." },
-            { word: "Nonchalant", exams: ["SAT"], def: "Feeling or appearing casually calm and relaxed; not displaying anxiety, interest, or enthusiasm.", ex: "She gave a nonchalant shrug." }
-        ];
+        const baseWords = [];
 
         // Generator to create a larger dataset
+        // Initialize empty array for future Apps Script data
         let allWords = [];
-        for (let i = 0; i < 50; i++) { // Generate 600 items (12 * 50)
-            baseWords.forEach((item, index) => {
-                allWords.push({
-                    id: i * 12 + index,
-                    word: item.word + (i > 0 ? ` ${i + 1}` : ""), // Unique names for search demo
-                    exams: item.exams,
-                    def: item.def,
-                    ex: item.ex
-                });
-            });
-        }
+
+        // TODO: This array will be populated by fetching data 
+        // from your Google Apps Script endpoint in the future.
 
         // --- 2. State Management ---
         const STATE = {
