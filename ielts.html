@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -277,6 +277,28 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('daily-archives.html');
+                const text = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const latestCard = doc.querySelector('#daily-feed-container article');
+                
+                const feedContainer = document.querySelector('[id$="-feed"]');
+                
+                if (latestCard && feedContainer) {
+                    feedContainer.innerHTML = '';
+                    feedContainer.appendChild(latestCard.cloneNode(true));
+                } else if (!latestCard && feedContainer) {
+                    feedContainer.innerHTML = '<p class=\"text-gray-500 text-center py-10\">No recent reviews available.</p>';
+                }
+            } catch (err) {
+                console.error('Error fetching latest review:', err);
+            }
+        });
+    </script>
 </body>
 
 </html>
