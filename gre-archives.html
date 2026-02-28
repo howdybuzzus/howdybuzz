@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRE Vocabulary Archives | HowdyBuzz</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { 'midnight-blue': '#0b1a2a', 'brand-gold': '#FFD700' }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden">
+    <!-- Nav -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#0b1a2a] border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="logo.png" alt="HowdyBuzz Logo" class="h-10 w-auto transition-all duration-300">
+                <span class="text-2xl font-bold text-white tracking-tight">Howdy<span
+                        class="text-brand-gold">Buzz</span></span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white font-medium transition-colors">Home</a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center text-gray-300 group-hover:text-white font-medium transition-colors focus:outline-none">
+                        Exams <svg
+                            class="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform duration-200"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left z-50">
+                        <a href="gre.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-blue-600">GRE
+                            Track</a>
+                        <a href="gmat.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-emerald-600">GMAT
+                            Track</a>
+                        <a href="ielts.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-red-600">IELTS
+                            Track</a>
+                        <a href="toefl.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-orange-600">TOEFL
+                            Track</a>
+                        <a href="sat.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-purple-600">SAT
+                            Track</a>
+                        <a href="pte.html"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-cyan-600">PTE
+                            Track</a>
+                    </div>
+                </div>
+                <a href="daily-archives.html" class="text-white font-bold transition-colors">Daily 5 Words</a>
+                <a href="vocabulary-vault.html"
+                    class="text-gray-300 hover:text-white font-medium transition-colors">Vocabulary Vault</a>
+                <a href="#footer" class="text-gray-300 hover:text-white font-medium transition-colors">Contact Us</a>
+            </div>
+            <div class="hidden md:block">
+                <a href="#"
+                    class="px-6 py-2 bg-brand-gold text-[#0b1a2a] font-bold rounded-lg hover:bg-white transition-colors shadow-md">Get
+                    Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="pt-32 pb-20 px-6 bg-gradient-to-b from-[#0b1a2a] to-blue-900 text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-fuchsia-500/20 border border-fuchsia-400/30 text-fuchsia-300 text-sm font-semibold mb-6">Daily
+                Knowledge Drops</span>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Weekly <span class="text-brand-gold">GRE Vocabulary\.</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto">Browse past Daily 5 sets. Consistent practice is the key
+                to vocabulary dominance.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+
+        <!-- Controls / Search (Optional future) -->
+        <div class="flex justify-between items-center mb-12 border-b border-gray-200 pb-6">
+            <h2 class="text-2xl font-bold text-gray-800">Recent Archives</h2>
+            <div class="text-sm text-gray-500">Showing 1-10 of 100+</div>
+        </div>
+
+        <!-- Feed Container -->
+        <div id="gre-feed-container" class="space-y-10">
+
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-16 flex justify-center">
+            <nav class="inline-flex rounded-md shadow-sm isolate" aria-label="Pagination">
+                <a href="#"
+                    class="relative inline-flex items-center rounded-l-md px-4 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                    <span class="sr-only">Previous</span>
+                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" aria-current="page"
+                    class="relative z-10 inline-flex items-center bg-[#0b1a2a] px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">1</a>
+                <a href="#"
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">2</a>
+                <a href="#"
+                    class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">3</a>
+                <span
+                    class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">...</span>
+                <a href="#"
+                    class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex">10</a>
+                <a href="#"
+                    class="relative inline-flex items-center rounded-r-md px-4 py-2 text-sm font-semibold text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
+                    <span class="sr-only">Next</span>
+                    <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd"
+                            d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Subscribe Section -->
+    <section class="max-w-4xl mx-auto px-6 py-16 text-center">
+        <div
+            class="bg-gradient-to-br from-[#0b1a2a] to-blue-900 rounded-3xl p-10 md:p-16 relative overflow-hidden shadow-2xl">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-5 rounded-full blur-3xl"></div>
+            <div
+                class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-brand-gold opacity-10 rounded-full blur-3xl">
+            </div>
+
+            <div class="relative z-10">
+                <span
+                    class="inline-block py-1 px-3 rounded-full bg-white/10 text-brand-gold text-xs font-bold tracking-wider uppercase mb-6 border border-white/10">Daily
+                    5 Words</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join our Daily Vocabulary Club</h2>
+                <p class="text-gray-300 mb-8 max-w-lg mx-auto">Get 5 high-impact words delivered to your inbox every
+                    morning. The easiest way to build a top 1% vocabulary.</p>
+
+                <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
+                    onsubmit="event.preventDefault(); alert('Subscribed! (This is a static demo. In a real app, this would save to a database.)');">
+                    <input type="email" placeholder="Enter your email address" required
+                        class="flex-1 px-6 py-4 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:bg-white/20 transition-all">
+                    <button type="submit"
+                        class="px-8 py-4 bg-brand-gold text-[#0b1a2a] font-bold rounded-xl hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg whitespace-nowrap">
+                        Subscribe Now
+                    </button>
+                </form>
+                <p class="text-gray-500 text-xs mt-6">We respect your privacy. Unsubscribe at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-gray-900 text-white border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="space-y-4">
+                    <a href="index.html" class="inline-block">
+                        <span class="text-2xl font-bold tracking-tight text-white">Howdy<span
+                                class="text-brand-gold">Buzz</span></span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Master Vocabulary for Global Exams. The most comprehensive platform for GRE, GMAT, IELTS, TOEFL,
+                        SAT
+                        and PTE aspirants.
+                    </p>
+                    <div class="pt-4">
+                        <h4 class="text-white font-semibold mb-2 text-sm uppercase tracking-wider">Contact Us</h4>
+                        <a href="mailto:howdybuzzus@gmail.com"
+                            class="text-gray-400 hover:text-brand-gold transition-colors block">howdybuzzus@gmail.com</a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-brand-gold font-semibold uppercase tracking-wider text-sm mb-6">Exam Tracks</h3>
+                    <ul class="space-y-3">
+                        <li><a href="gre.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">GRE
+                                Vocabulary</a></li>
+                        <li><a href="gmat.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">GMAT
+                                Lexicon</a></li>
+                        <li><a href="ielts.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">IELTS
+                                Academic</a></li>
+                        <li><a href="toefl.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">TOEFL
+                                Essential</a></li>
+                        <li><a href="sat.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">SAT
+                                Prep</a></li>
+                        <li><a href="pte.html"
+                                class="text-gray-300 hover:text-white hover:text-brand-gold transition-colors block w-fit">PTE
+                                Academic</a></li>
+                    </ul>
+                </div>
+                <div class="bg-white/5 rounded-2xl p-6 border border-white/10 backdrop-blur-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="bg-red-500 rounded-full w-2 h-2 animate-pulse"></span>
+                        <h3 class="text-white font-bold">Indian Exams?</h3>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6">Preparing for CAT, UPSC, or BANK PO? We have a dedicated
+                        platform just for you.</p>
+                    <a href="https://howdybuzz.in" target="_blank"
+                        class="flex items-center justify-between w-full px-4 py-3 bg-white text-[#0b1a2a] rounded-lg font-bold hover:bg-brand-gold transition-all group">
+                        <span>Visit Howdybuzz.in</span>
+                        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div
+                class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 HowdyBuzz. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
