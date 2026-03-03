@@ -4,7 +4,7 @@ window.vaultData = [
     "word": "Abate",
     "pos": "",
     "def": "To become less intense or widespread; to subside.",
-    "ex": "",
+    "ex": "The storm began to abate after several hours of heavy rain.",
     "exams": [
       "Vocabulary"
     ]
