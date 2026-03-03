@@ -356,13 +356,13 @@
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                          </button>
                          -->
-                         <a href="/word/${data.word.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" class="hover:text-blue-600 block transition-colors" title="View Word Analysis">
+                         <a href="word/${data.word.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html" class="hover:text-blue-600 block transition-colors" title="View Word Analysis">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
                          </a>
                     </div>
                 </div>
             `;
-            
+
             // Only show example sentence if it exists
             const sentenceDiv = article.querySelector('.border-t.border-gray-50');
             if (!data.ex || data.ex.trim() === "") {
